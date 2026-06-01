@@ -16,7 +16,7 @@ class OrderPageLocators:
     RENTAL_PERIOD = (By.XPATH, ".//*[contains(text(), 'сутки')]")
     SCOOTER_COLOR_BLACK = (By.ID, "black")
     COMMENT_FIELD = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']")
-    ORDER_BUTTON = (By.XPATH, ".//body/div/div/div/div/button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
+    ORDER_BUTTON = (By.XPATH, ".//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']")
     YES_BUTTON = (By.XPATH, ".//button[text() = 'Да']")
 
     ORDER_SUCCESS = (By.CLASS_NAME, "Order_Modal__YZ-d3")
