@@ -1,7 +1,10 @@
 import allure
+import pytest
 
 from pages.main_page import MainPage
+from pages.order_page import OrderPage
 from url import ORDER_URL
+from data import test_data
 
 class TestOrderButtons:
     @allure.title("Проверка наличия двух кнопок для заказа на главной странице")
@@ -13,21 +16,24 @@ class TestOrderButtons:
 
         assert upper_button and lower_button
 
-    @allure.title("Проверка перенаправления верхней кнопки заказа на страницу заказа")
-    def test_upper_order_button_leads_to_order_page(self, main_page_driver):
+    @allure.title("Проверка отображения уведомления об успешном заказе после заполнения формы и оформления заказа через обе кнопки 'Заказать'")
+    @pytest.mark.parametrize('locator,first_name,last_name,address,metro_station,phone_number,date,rental_period,color,comment', test_data)
+    def test_order_successfuly_made(self, main_page_driver, locator, first_name, last_name, address, metro_station, phone_number, date, rental_period, color, comment):
         main_page = MainPage(main_page_driver)
 
-        order_url = main_page.order_via_upper_button()
+        main_page.accept_cookies()
+        main_page.click_order_button(locator)
 
-        assert order_url == ORDER_URL
+        order_page = OrderPage(main_page_driver)
 
-    @allure.title("Проверка перенаправления нижней кнопки заказа на страницу заказа")
-    def test_lower_order_button_leads_to_order_page(self, main_page_driver):
-        main_page = MainPage(main_page_driver)
+        order_page.fill_ordering_form(first_name, last_name, address, metro_station, phone_number, date, rental_period, color, comment)
+        order_page.make_order()
 
-        order_url = main_page.order_via_lower_button()
+        assert order_page.success_order_notification_displayed()
 
-        assert order_url == ORDER_URL
+    
+
+
         
 
         

@@ -18,5 +18,7 @@ class MainPageLocators:
         ANSWER_7 = (By.XPATH, ".//div[@ID='accordion__panel-6']/p")
         ANSWER_8 = (By.XPATH, ".//div[@ID='accordion__panel-7']/p")
 
+        ACCEPT_COOKIES_BUTTON = (By.ID, "rcc-confirm-button")
+
         ORDER_BUTTON_UP = (By.CLASS_NAME, "Button_Button__ra12g")
         ORDER_BUTTON_DOWN = (By.CSS_SELECTOR, ".Button_Middle__1CSJM")

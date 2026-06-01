@@ -1,4 +1,5 @@
 from locators.main_page_locators import MainPageLocators
+from locators.order_page_locators import OrderPageLocators
 
 faq_data = [(MainPageLocators.QUESTION_1, MainPageLocators.ANSWER_1, 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'),
             (MainPageLocators.QUESTION_2, MainPageLocators.ANSWER_2, 'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.'),
@@ -9,5 +10,5 @@ faq_data = [(MainPageLocators.QUESTION_1, MainPageLocators.ANSWER_1, 'Сутки
             (MainPageLocators.QUESTION_7, MainPageLocators.ANSWER_7, 'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.'),
             (MainPageLocators.QUESTION_8, MainPageLocators.ANSWER_8, 'Да, обязательно. Всем самокатов! И Москве, и Московской области.')]
 
-test_data = [("Иван", "Иванов", "Улица Пушкина, дом 1", "89765432123", "Оставьте у двери"),
-             ("Пётр", "Петров", "Проспект Ленина, дом 2", "+79997654321", "")]
+test_data = [(MainPageLocators.ORDER_BUTTON_UP, "Иван", "Иванов", "Улица Пушкина, дом 1", OrderPageLocators.METRO_STATION, "89765432123", OrderPageLocators.WHEN_DATE, OrderPageLocators.RENTAL_PERIOD, OrderPageLocators.SCOOTER_COLOR_BLACK, "Оставьте у двери"),
+             (MainPageLocators.ORDER_BUTTON_DOWN, "Пётр", "Петров", "Проспект Ленина, дом 2", OrderPageLocators.METRO_STATION_1, "+79997654321", OrderPageLocators.WHEN_DATE_1, OrderPageLocators.RENTAL_PERIOD_1, OrderPageLocators.SCOOTER_COLOR_GREY, "")]

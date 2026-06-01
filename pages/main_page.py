@@ -20,16 +20,17 @@ class MainPage(BasePage):
         self.scroll_to_element(MainPageLocators.ORDER_BUTTON_DOWN)
         return self.element_is_displayed(MainPageLocators.ORDER_BUTTON_DOWN)
     
-    @allure.step("Заказать через верхнюю кнопку")
-    def order_via_upper_button(self):
-        self.click_element(MainPageLocators.ORDER_BUTTON_UP)
-        return self.url
+    @allure.step("Принять использование куки")
+    def accept_cookies(self):
+        self.click_element(MainPageLocators.ACCEPT_COOKIES_BUTTON)
 
-    @allure.step("Заказать через нижнюю кнопку")
-    def order_via_lower_button(self):
-        self.scroll_to_element(MainPageLocators.ORDER_BUTTON_DOWN)
-        self.click_element(MainPageLocators.ORDER_BUTTON_DOWN)
-        return self.url
+    @allure.step("Нажать на кнопку 'Заказать'")
+    def click_order_button(self, locator):
+        self.scroll_to_element(locator)
+        self.click_element(locator)
+
+
+
 
 
 

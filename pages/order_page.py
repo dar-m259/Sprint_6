@@ -4,25 +4,24 @@ from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
 
 class OrderPage(BasePage):
-    @allure.step("Принять использование куки")
-    def accept_cookies(self):
-        self.click_element(OrderPageLocators.ACCEPT_COOKIES_BUTTON)
-
     @allure.step("Заполнить формы заказа")
-    def fill_ordering_form(self, first_name, last_name, address, phone_number, comment):
+    def fill_ordering_form(self, first_name, last_name, address, metro_station, phone_number, date, rental_period, color, comment):
+        self.wait_for_element(OrderPageLocators.FIRST_NAME_FIELD)
         self.send_keys_to_element(OrderPageLocators.FIRST_NAME_FIELD, first_name)
         self.send_keys_to_element(OrderPageLocators.LAST_NAME_FIELD, last_name)
         self.send_keys_to_element(OrderPageLocators.ADDRESS_FIELD, address)
         self.click_element(OrderPageLocators.METRO_FIELD)
-        self.click_element(OrderPageLocators.METRO_STATION)
+        self.scroll_to_element(metro_station)
+        self.click_element(metro_station)
         self.send_keys_to_element(OrderPageLocators.PHONE, phone_number)
         self.click_element(OrderPageLocators.NEXT_BUTTON)
         self.wait_for_element(OrderPageLocators.WHEN_FIELD)
         self.click_element(OrderPageLocators.WHEN_FIELD)
-        self.click_element(OrderPageLocators.WHEN_DATE)
+        self.click_element(date)
         self.click_element(OrderPageLocators.RENTAL_PERIOD_FIELD)
-        self.click_element(OrderPageLocators.RENTAL_PERIOD)
-        self.click_element(OrderPageLocators.SCOOTER_COLOR_BLACK)
+        self.scroll_to_element(rental_period)
+        self.click_element(rental_period)
+        self.click_element(color)
         self.send_keys_to_element(OrderPageLocators.COMMENT_FIELD, comment)
 
     @allure.step("Заказать и подтвердить оформление заказа")
