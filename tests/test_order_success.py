@@ -2,9 +2,7 @@ import allure
 import pytest
 
 from pages.order_page import OrderPage
-
-test_data = [("Иван", "Иванов", "Улица Пушкина, дом 1", "89765432123", "Оставьте у двери"),
-             ("Пётр", "Петров", "Проспект Ленина, дом 2", "+79997654321", "")]
+from data import test_data
 
 class TestOrderSuccess:
     @allure.title("Проверка отображения уведомления об успешном заказе после заполнения формы и оформления заказа")

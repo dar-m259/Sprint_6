@@ -1,7 +1,7 @@
 import allure
 
 from pages.order_page import OrderPage
-from url import MAIN_URL, YANDEX_DZEN
+from url import MAIN_URL
 
 class TestRedirection:
     @allure.title("Проверить перенаправление кликом по лого Самоката на главную страницу")
