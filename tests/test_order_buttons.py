@@ -3,7 +3,6 @@ import pytest
 
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
-from url import ORDER_URL
 from data import test_data
 
 class TestOrderButtons:
